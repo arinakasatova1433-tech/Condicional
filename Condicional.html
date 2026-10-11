@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potencial Simple (Condicional) - Ejercicios</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #1a365d;
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2b6cb0;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+        .exercise-section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .instructions {
+            background-color: #ebf8ff;
+            padding: 15px;
+            border-left: 5px solid #3182ce;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            font-size: 0.95em;
+            color: #2c5282;
+        }
+        .model-box {
+            background-color: #fffaf0;
+            padding: 15px;
+            border-left: 5px solid #dd6b20;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            font-weight: bold;
+            color: #7b341e;
+            font-style: italic;
+        }
+        .sentence-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .sentence-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .source-text {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.05em;
+        }
+        .ru-text {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.05em;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.2s;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+        }
+        .correct {
+            background-color: #f0fff4;
+            border-color: #38a169;
+            color: #22543d;
+        }
+        .incorrect {
+            background-color: #fff5f5;
+            border-color: #e53e3e;
+            color: #742a2a;
+        }
+        .btn-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-check {
+            background-color: #3182ce;
+            color: white;
+        }
+        .btn-check:hover { background-color: #2b6cb0; }
+        
+        .btn-show {
+            background-color: #ed8936;
+            color: white;
+        }
+        .btn-show:hover { background-color: #dd6b20; }
+        
+        .btn-reset {
+            background-color: #a0aec0;
+            color: white;
+        }
+        .btn-reset:hover { background-color: #718096; }
+    </style>
+</head>
+<body>
+
+    <h1>Potencial Simple (Condicional Simple)</h1>
+
+    <!-- ЗАДАНИЕ 2 -->
+    <section class="exercise-section" id="exercise-2">
+        <h2>2. Ponga en Potencial Simple</h2>
+        <div class="instructions">
+            Поставьте предложения в простое условное наклонение (Potencial Simple / Condicional Simple).
+        </div>
+
+        <div class="sentence-item">
+            <span class="source-text">1. Te lo diré.</span>
+            <input type="text" data-correct="te lo diría">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">2. No sé qué decirte.</span>
+            <input type="text" data-correct="no sabría qué decirte">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">3. Nos viene bien.</span>
+            <input type="text" data-correct="nos vendría bien">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">4. No está mal.</span>
+            <input type="text" data-correct="no estaría mal">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">5. Es estupendo.</span>
+            <input type="text" data-correct="sería estupendo">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">6. ¿Te importa cerrar la puerta?</span>
+            <input type="text" data-correct="¿te importaría cerrar la puerta?">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">7. Piensas que estoy loco.</span>
+            <input type="text" data-correct="pensarías que estoy loco">
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-check" onclick="checkExercise('exercise-2')">Проверить</button>
+            <button class="btn btn-show" onclick="showAnswers('exercise-2')">Показать ответы</button>
+            <button class="btn btn-reset" onclick="resetExercise('exercise-2')">Сбросить</button>
+        </div>
+    </section>
+
+    <!-- ЗАДАНИЕ 4 -->
+    <section class="exercise-section" id="exercise-4">
+        <h2>4. Conteste según el modelo</h2>
+        <div class="model-box">
+            Modelo: Quiero comprar un piso. — Yo que tú no lo compraría ahora.
+        </div>
+        <div class="instructions">
+            Ответьте на фразы, используя конструкцию <strong>"Yo que tú + Potencial Simple"</strong> (на месте "tú" вы даете совет от себя, обычно с отрицанием, как в модели).
+        </div>
+
+        <div class="sentence-item">
+            <span class="source-text">1. Quiero acercarme al club "69".</span>
+            <input type="text" data-correct="yo que tú no me acercaría al club 69">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">2. Quiero ponerme este traje negro para mi despedida de soltero.</span>
+            <input type="text" data-correct="yo que tú no me pondría este traje negro para mi despedida de soltero">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">3. Pienso invitar a mi ex a mi boda.</span>
+            <input type="text" data-correct="yo que tú no invitaría a mi ex a mi boda">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">4. Quiero teñirme el pelo de rojo.</span>
+            <input type="text" data-correct="yo que tú no me teñiría el pelo de rojo">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">5. Voy a casarme con un hombre más joven que yo.</span>
+            <input type="text" data-correct="yo que tú no me casaría con un hombre más joven que yo">
+        </div>
+        <div class="sentence-item">
+            <span class="source-text">6. Quiero matar a mi vecino que no me deja dormir.</span>
+            <input type="text" data-correct="yo que tú no mataría a mi vecino que no me deja dormir">
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-check" onclick="checkExercise('exercise-4')">Проверить</button>
+            <button class="btn btn-show" onclick="showAnswers('exercise-4')">Показать ответы</button>
+            <button class="btn btn-reset" onclick="resetExercise('exercise-4')">Сбросить</button>
+        </div>
+    </section>
+
+    <!-- ЗАДАНИЕ 7 -->
+    <section class="exercise-section" id="exercise-7">
+        <h2>7. Traduzca</h2>
+        <div class="model-box">
+            Modelo: El informó que me abandonaría.
+        </div>
+        <div class="instructions">
+            Переведите предложения на испанский язык. Используйте косвенную речь и Potencial Simple (например: "Он сказал, что поедет" — "Él dijo que iría").
+        </div>
+
+        <div class="sentence-item">
+            <span class="ru-text">1. Он сказал, что поедет туда.</span>
+            <input type="text" data-correct="él dijo que iría allí">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">2. Она сообщила, что останется.</span>
+            <input type="text" data-correct="ella comunicó que se quedaría">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">3. Ты сказал, что сделаешь.</span>
+            <input type="text" data-correct="tú dijiste que lo harías">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">4. Я сказала, что не прощу.</span>
+            <input type="text" data-correct="yo dije que no perdonaría">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">5. Они сообщили, что не смогут.</span>
+            <input type="text" data-correct="ellos comunicaron que no podrían">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">6. Мы сказали, что не придем.</span>
+            <input type="text" data-correct="nosotros dijimos que no vendríamos">
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-check" onclick="checkExercise('exercise-7')">Проверить</button>
+            <button class="btn btn-show" onclick="showAnswers('exercise-7')">Показать ответы</button>
+            <button class="btn btn-reset" onclick="resetExercise('exercise-7')">Сбросить</button>
+        </div>
+    </section>
+
+    <script>
+        // Функция для нормализации текста (убирает лишние пробелы, знаки препинания, accents и приводит к нижнему регистру)
+        function normalizeText(text) {
+            return text.trim().toLowerCase()
+                .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Убирает accents (á -> a)
+                .replace(/[.,!?¿¡"']/g, ""); // Убирает знаки препинания и кавычки
+        }
+
+        // Функция проверки ответов
+        function checkExercise(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input[type="text"]');
+            
+            inputs.forEach(input => {
+                const userAnswer = input.value;
+                const correctAnswer = input.dataset.correct;
+                
+                // Используем мягкую проверку для всех заданий, так как это целые предложения
+                const isCorrect = normalizeText(userAnswer) === normalizeText(correctAnswer);
+
+                if (isCorrect) {
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                } else {
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
+                }
+            });
+        }
+
+        // Функция показа правильных ответов
+        function showAnswers(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input[type="text"]');
+            
+            inputs.forEach(input => {
+                input.value = input.dataset.correct;
+                input.classList.add('correct');
+                input.classList.remove('incorrect');
+            });
+        }
+
+        // Функция сброса
+        function resetExercise(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input[type="text"]');
+            
+            inputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('correct', 'incorrect');
+            });
+        }
+    </script>
+</body>
+</html>

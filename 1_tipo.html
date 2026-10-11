@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oraciones Condicionales y Estilo Indirecto</title>
+    <style>
+        :root {
+            --primary-color: #2b6cb0;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --border-color: #e2e8f0;
+            --correct-bg: #f0fff4;
+            --correct-border: #38a169;
+            --incorrect-bg: #fff5f5;
+            --incorrect-border: #e53e3e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a365d;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .section-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .instructions {
+            background-color: #ebf8ff;
+            padding: 15px;
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            font-size: 0.95em;
+            color: #2c5282;
+        }
+
+        .model-box {
+            background-color: #fffaf0;
+            padding: 15px;
+            border-left: 5px solid #dd6b20;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            font-weight: bold;
+            color: #7b341e;
+            font-style: italic;
+        }
+
+        /* Стили для справочной таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #edf2f7;
+            color: #1a365d;
+            font-weight: bold;
+            text-align: center;
+        }
+        .table-header {
+            background-color: #ebf8ff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Стили для упражнений */
+        .sentence-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .sentence-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .source-text {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.05em;
+        }
+
+        .ru-text {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.05em;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .input-label {
+            font-size: 0.9em;
+            color: #718096;
+            min-width: 140px;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+        }
+
+        .correct {
+            background-color: var(--correct-bg);
+            border-color: var(--correct-border);
+            color: #22543d;
+        }
+
+        .incorrect {
+            background-color: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+            color: #742a2a;
+        }
+
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-check { background-color: var(--primary-color); color: white; }
+        .btn-check:hover { background-color: #2b6cb0; }
+        .btn-show { background-color: #ed8936; color: white; }
+        .btn-show:hover { background-color: #dd6b20; }
+        .btn-reset { background-color: #a0aec0; color: white; }
+        .btn-reset:hover { background-color: #718096; }
+    </style>
+</head>
+<body>
+
+    <h1>Oraciones Condicionales y Estilo Indirecto</h1>
+
+    <!-- СПРАВОЧНАЯ ТАБЛИЦА -->
+    <section class="section-box">
+        <h2>Придаточные условные (Oraciones subordinadas condicionales)</h2>
+        <div class="instructions">
+            Тип I: Реальное условие (в настоящем или будущем).<br>
+            <strong>Схема:</strong> Si + Presente de Indicativo, Futuro / Imperativo / Presente.
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Si</th>
+                    <th>Прямая речь (Estilo directo)</th>
+                    <th>Косвенная речь (Estilo indirecto)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2" style="vertical-align: middle; text-align: center; font-weight: bold;">I tipo</td>
+                    <td>Si lo hago, lo haré.</td>
+                    <td>Si salgo temprano, te llamo. — Если выйду рано, я тебе звоню.</td>
+                </tr>
+                <tr>
+                    <td>Si Indicativo, Indicativo/imperativo</td>
+                    <td>Si sales temprano, llámame. — Если выйдешь рано, позвони мне.</td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Si salía temprano, iba al cine. — Если он выходил рано, то шел в кино.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; font-size: 0.95em;">
+            <strong>Трансформация в косвенную речь (прошедшее время):</strong><br>
+            Si lo hago, lo haré. → Dijo que si lo hacía, lo haría.<br>
+            Si lo haces, hazlo. → Dijo que si lo hacía, que lo hiciera.<br>
+            Si lo hago, lo harás. → Dudo que si lo hago, lo hagas.<br>
+            Si lo hago, lo harás. → Dudaba que si lo hacía, lo hiciera.
+        </div>
+    </section>
+
+    <!-- ЗАДАНИЕ 2 -->
+    <section class="section-box" id="exercise-2">
+        <h2>2. Haga según el modelo</h2>
+        <div class="model-box">
+            Un padre habla con su pequeño hijo:<br><br>
+            1. Comerse toda la cena/poder ver la tele<br>
+            "Si te comes toda la cena, podrás ver la tele".<br>
+            Mi padre dijo que si me comía la cena, podría ver la tele.
+        </div>
+        <div class="instructions">
+            Составьте прямую речь (в кавычках) и переведите её в косвенную речь в прошедшем времени.
+        </div>
+
+        <div class="sentence-item">
+            <span class="source-text">2. Acostarse pronto / leerle un cuento</span>
+            <div class="input-group">
+                <span class="input-label">Directo:</span>
+                <input type="text" data-correct="Si te acuestas pronto, te leeré un cuento">
+            </div>
+            <div class="input-group">
+                <span class="input-label">Indirecto:</span>
+                <input type="text" data-correct="Mi padre dijo que si me acostaba pronto, me leería un cuento">
+            </div>
+        </div>
+
+        <div class="sentence-item">
+            <span class="source-text">3. Hacer los deberes / dar 5 euros</span>
+            <div class="input-group">
+                <span class="input-label">Directo:</span>
+                <input type="text" data-correct="Si haces los deberes, te daré 5 euros">
+            </div>
+            <div class="input-group">
+                <span class="input-label">Indirecto:</span>
+                <input type="text" data-correct="Mi padre dijo que si hacía los deberes, me daría 5 euros">
+            </div>
+        </div>
+
+        <div class="sentence-item">
+            <span class="source-text">4. Portarse bien / llevar al cine</span>
+            <div class="input-group">
+                <span class="input-label">Directo:</span>
+                <input type="text" data-correct="Si te portas bien, te llevaré al cine">
+            </div>
+            <div class="input-group">
+                <span class="input-label">Indirecto:</span>
+                <input type="text" data-correct="Mi padre dijo que si me portaba bien, me llevaría al cine">
+            </div>
+        </div>
+
+        <div class="sentence-item">
+            <span class="source-text">5. Lavarse / comprar un video juego</span>
+            <div class="input-group">
+                <span class="input-label">Directo:</span>
+                <input type="text" data-correct="Si te lavas, te compraré un videojuego">
+            </div>
+            <div class="input-group">
+                <span class="input-label">Indirecto:</span>
+                <input type="text" data-correct="Mi padre dijo que si me lavaba, me compraría un videojuego">
+            </div>
+        </div>
+
+        <div class="sentence-item">
+            <span class="source-text">6. No molestar / permitir invitar a un amigo</span>
+            <div class="input-group">
+                <span class="input-label">Directo:</span>
+                <input type="text" data-correct="Si no molestas, te permitiré invitar a un amigo">
+            </div>
+            <div class="input-group">
+                <span class="input-label">Indirecto:</span>
+                <input type="text" data-correct="Mi padre dijo que si no molestaba, me permitiría invitar a un amigo">
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-check" onclick="checkExercise('exercise-2')">Проверить</button>
+            <button class="btn btn-show" onclick="showAnswers('exercise-2')">Показать ответы</button>
+            <button class="btn btn-reset" onclick="resetExercise('exercise-2')">Сбросить</button>
+        </div>
+    </section>
+
+    <!-- ЗАДАНИЕ 7 -->
+    <section class="section-box" id="exercise-7">
+        <h2>7. Traduzca</h2>
+        <div class="model-box">
+            Modelo: El informó que me abandonaría.
+        </div>
+        <div class="instructions">
+            Переведите предложения на испанский язык, используя косвенную речь и Potencial Simple.
+        </div>
+
+        <div class="sentence-item">
+            <span class="ru-text">1. Он сказал, что поедет туда.</span>
+            <input type="text" data-correct="él dijo que iría allí">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">2. Она сообщила, что останется.</span>
+            <input type="text" data-correct="ella comunicó que se quedaría">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">3. Ты сказал, что сделаешь.</span>
+            <input type="text" data-correct="tú dijiste que lo harías">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">4. Я сказала, что не прощу.</span>
+            <input type="text" data-correct="yo dije que no perdonaría">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">5. Они сообщили, что не смогут.</span>
+            <input type="text" data-correct="ellos comunicaron que no podrían">
+        </div>
+        <div class="sentence-item">
+            <span class="ru-text">6. Мы сказали, что не придем.</span>
+            <input type="text" data-correct="nosotros dijimos que no vendríamos">
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-check" onclick="checkExercise('exercise-7')">Проверить</button>
+            <button class="btn btn-show" onclick="showAnswers('exercise-7')">Показать ответы</button>
+            <button class="btn btn-reset" onclick="resetExercise('exercise-7')">Сбросить</button>
+        </div>
+    </section>
+
+    <script>
+        // Функция для нормализации текста (убирает лишние пробелы, знаки препинания, accents и приводит к нижнему регистру)
+        function normalizeText(text) {
+            return text.trim().toLowerCase()
+                .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Убирает accents (á -> a)
+                .replace(/[.,!?¿¡"']/g, ""); // Убирает знаки препинания и кавычки
+        }
+
+        // Функция проверки ответов
+        function checkExercise(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input[type="text"]');
+            
+            inputs.forEach(input => {
+                const userAnswer = input.value;
+                const correctAnswer = input.dataset.correct;
+                
+                // Мягкая проверка для целых предложений
+                const isCorrect = normalizeText(userAnswer) === normalizeText(correctAnswer);
+
+                if (isCorrect) {
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                } else {
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
+                }
+            });
+        }
+
+        // Функция показа правильных ответов
+        function showAnswers(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input[type="text"]');
+            
+            inputs.forEach(input => {
+                input.value = input.dataset.correct;
+                input.classList.add('correct');
+                input.classList.remove('incorrect');
+            });
+        }
+
+        // Функция сброса
+        function resetExercise(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input[type="text"]');
+            
+            inputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('correct', 'incorrect');
+            });
+        }
+    </script>
+</body>
+</html>
